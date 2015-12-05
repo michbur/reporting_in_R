@@ -15,22 +15,38 @@ In the recent years we observed arise of several R packages enhancing proces of 
 
 The functionalities helpful in the management data analysis are scattered among several packages, but only one package, [ProjectTemplate](http://projecttemplate.net/), aims directly to solve this problem. Nevertheless, our project cannot be perceived as a counterpart of *ProjectTemplate*, because we will focus on different aspects of the workflow management
 
-
 # Overview
 
 An analysis is never done in a single step. Instead, it is more complicated process, requiring moving back and forward, sometimes even drastic changes in a scope or a goal of the study. Our project will be focused on preserving these intermediate steps of formulating a final analysis workflow streamlining the return to previous solutions. 
 
-The next problem of any analytic workflow is the management of the code involved in the analysis emplying often both functions from several packages and written specifically for the purpose of the current task. The former may create a namespace cluttered with many masked objects, the latter involves dealing with the untested code. We will provide users with the functionalies to keep the analysis enviroment clean and to both test and document their own code.
+The next problem of any analytic workflow is the management of the code involved in the analysis emplying often both functions from several packages and written specifically for the purpose of the current task. The former may create a namespace cluttered with many masked objects, the latter involves dealing with the untested code. We will provide users with the functionalities to keep the analysis enviroment clean and to both test and document their own code.
 
 ## Detailed description of the project
 
 ### Isolating the workspace of the workflow
 
-Essentially add functions from the specific packages to the new namespace, that would have priority over default namespace (create pseudopackage for project). Maybe packrat for creating private library for the project.
-
+Instead of loading all packages needed during the analysis, **reporteR**  will create a new namespace with specified imports (simply a package for each analysis). Alternatively packrat. Or combine two approaches - packrat for specific versions of the packages and new namespace for imports.
 
 ### Documenting and testing functions written for the purpose of an analysis
 
-The written on the fly functions tend to have much lower quality that functions coming from packages. The burden of writing proper documentation and argumement checks may seem unnecessary for the custom functions used in the analysis. The **reporteR** supports analysts by generating documentation for functions written using the roxygen standard.
+The written on the fly functions tend to have much lower quality that functions coming from packages. The burden of writing proper documentation and argumement checks may seem unnecessary for the custom functions used in the analysis. **reporteR** supports analysts by generating documentation for functions written using the roxygen standard.
 
-Functions used in the reporteR-governed project should be documented using the roxygen standard. The tests for arguments via [checkmate](https://github.com/mllg/checkmate) package will be generated automatically during the documentation process.
+Functions used in the reporteR-governed project should be documented using the roxygen standard. The tests for arguments via [checkmate](https://github.com/mllg/checkmate) package will be added automatically during the documentation process.
+
+### Documenting data sets and reports
+
+Sources of metadata for data sets and reports:  
+1. abstr field in the yaml preamble of rmd reports.  
+2. what with .rnw.  
+3. data?.  
+
+
+### Tracking the workflow
+
+### Caching results
+
+*ProjectTemplate*, *knit* inbuilt capabilities. Archivist instead?
+
+### Preserving the past versions of the workflow
+
+git tag + archivist.

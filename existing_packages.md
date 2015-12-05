@@ -1,4 +1,4 @@
-# Project management in R
+# Workflow management in R
 
 [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 [A workflow for R](http://blog.revolutionanalytics.com/2010/10/a-workflow-for-r.html)
@@ -20,10 +20,12 @@ Similar projects:
 
 ### Analysis
 1. Cache results (archivist)
-2. Reporting (knitr, rmarkdown).
+2. Reporting (knitr, rmarkdown, rapport).
 
 ## Additional features
 
 1. Sanity checks:
- - tests
- - concordance of results of analysis (for the same data chunks)
+ - tests for new functions;
+ - concordance of results (are result of analysis different from results before changes).
+2. Internal dependence graph: functions responsible for specific parts of the workflow.
+3. Storing past versions of the workflow (via git or subversion).
