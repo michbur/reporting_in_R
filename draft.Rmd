@@ -28,6 +28,7 @@ An analysis is never done in a single step. Instead, it is more complicated proc
 
 The next problem of any analytic workflow is the management of the code involved in the analysis employing often both functions from several packages and written specifically for the purpose of the current task. The former may create a namespace cluttered with many masked objects, the latter involves dealing with the untested code. We will provide users with the functionalities to keep the analysis environment clean and to both test and document their own code.
 
+
 ## Detailed description of the project
 
 ### Isolating the workspace of the workflow
@@ -43,3 +44,18 @@ The written on the fly functions tend to have much lower quality that functions 
 Written functions will be easily and elegantly loaded via [modules](https://github.com/klmr/modules) package without cluttering the global namespace, but at the same time staying fully accessible. 
 
 ### Documenting data sets and reports.
+
+Sources of metadata for data sets and reports:  
+1. abstr field in the yaml preamble of rmd reports.  
+2. what with .rnw.  
+3. data?.  
+
+### Tracking the workflow
+
+### Caching results
+
+*ProjectTemplate*, *knit* inbuilt capabilities. Archivist instead?
+
+### Preserving the past versions of the workflow
+
+git tag + archivist.
