@@ -33,7 +33,7 @@ The next problem of any analytic workflow is the management of the code involved
 
 ### Idea of workflow unit
 
-The workflow is divided by the user into abstract units. 
+The workflow is divided by the user into abstract units (functions or expressions). Each unit must specified input (data set provided in the worflow or output of other unit) and output.
 
 ### Isolating the workspace of the workflow
 
@@ -56,11 +56,13 @@ Sources of metadata for data sets and reports:
 
 ### Tracking the workflow
 
+Management of larger workflows might be hard without any symbolic representation. On the other hand, diagrams, aside from their utility, may not represent accurately the current state of the workflow. **reporteR** will create a symbolic scheme of the workflow drawing relationships between particular workflow units. The automatically created diagram might be expertet in [mermaid](https://github.com/knsv/mermaid) format and further refined.
+
 Call stack + similar to [profvis](https://github.com/rstudio/profvis).
 
 ### Caching results
 
-Some units of the workflow may be too time consuming to be evaluated during reruns of the workflow. **reporter** will automatically take care of it. The package will measure time required for each workflow unit and stash such objects, that requires more time than indicates threshold set by the user. These objects will be recalculated only if the workflow unit or its input are changes.
+Some units of the workflow may be too time consuming to be evaluated during reruns of the workflow. **reporteR** will automatically take care of it. The package will measure time required for each workflow unit and stash such objects, that requires more time than indicates threshold set by the user. Workflow units will be recalculated only if their content
 
 ### Preserving the past versions of the workflow
 
