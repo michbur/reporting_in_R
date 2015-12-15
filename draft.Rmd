@@ -5,7 +5,7 @@ output: html_document
 
 In the recent years we observed arise of several R packages enhancing the process of writing R code. R programmers can now easily incorporate best programmer practices during the development of new tools. On the other hand, we see only a little improvement in the area of R tools designed to aid during the analysis of the data. Our aim is to create a new package responsible for managing the workflow of data analysis, from data pre-processing till reporting. 
 
-## Key functionalies of the package
+## Key functionalities of the package
 
 2. Isolating the workspace of the workflow (i.e. not by loading all packages, but only specific functions). 
 1. Documenting and testing functions written for the purpose of an analysis.
@@ -31,6 +31,10 @@ The next problem of any analytic workflow is the management of the code involved
 
 ## Detailed description of the project
 
+### Idea of workflow unit
+
+The workflow is divided by the user into abstract units. 
+
 ### Isolating the workspace of the workflow
 
 After loading several packages into to namespace, users often encounters that some functions were masked by other. Such behavior either imposes loading packages in a very specific order or the usage of double colon operators. Both possible solutions are inconvenient to use. **reporteR** will  add functions from the specific packages to the new environment, essentially creating the new namespace for the workflow.  
@@ -47,14 +51,16 @@ Written functions will be easily and elegantly loaded via [modules](https://gith
 
 Sources of metadata for data sets and reports:  
 1. abstr field in the yaml preamble of rmd reports.  
-2. what with .rnw.  
-3. data?.  
+2. .rnw.  
+3. data.  
 
 ### Tracking the workflow
 
+Call stack + similar to [profvis](https://github.com/rstudio/profvis).
+
 ### Caching results
 
-*ProjectTemplate*, *knit* inbuilt capabilities. Archivist instead?
+Some units of the workflow may be too time consuming to be evaluated during reruns of the workflow. **reporter** will automatically take care of it. The package will measure time required for each workflow unit and stash such objects, that requires more time than indicates threshold set by the user. These objects will be recalculated only if the workflow unit or its input are changes.
 
 ### Preserving the past versions of the workflow
 
