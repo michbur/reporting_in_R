@@ -33,7 +33,7 @@ The next problem of any analytic workflow is the management of the code involved
 
 ### Idea of workflow unit
 
-The workflow is divided by the user into abstract units (functions or expressions). Each unit must specified input (data set provided in the worflow or output of other unit) and output.
+The workflow is divided by the user into abstract units (functions or expressions). Each unit must have specified input (data set provided in the worflow or output of other unit) and output. We purposely keep workflow unit slightly undefined, because their range depends on the need of the user and the size of the project.  
 
 ### Isolating the workspace of the workflow
 
