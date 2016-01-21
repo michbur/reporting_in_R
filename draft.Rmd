@@ -62,7 +62,7 @@ Call stack + similar to [profvis](https://github.com/rstudio/profvis).
 
 ### Caching results
 
-Some units of the workflow may be too time consuming to be evaluated during reruns of the workflow. **reporteR** will automatically take care of it. The package will measure time required for each workflow unit and stash such objects, that requires more time than indicates threshold set by the user. Workflow units will be recalculated only if their content
+Some units of the workflow may be too time consuming to be evaluated during reruns of the workflow. **reporteR** will automatically take care of it using the functionalities from [memoise](https://cran.r-project.org/package=memoise). The package will measure time required for each workflow unit and stash such objects, that requires more time than indicates threshold set by the user. Workflow units will be recalculated only if their content is changed. 
 
 ### Preserving the past versions of the workflow
 
